@@ -1,10 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const path = require("path"); // for deploying on cyclic
+// const path = require("path"); // for deploying on cyclic
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3333;
 
 // import connection file
 require("./db/connection");
@@ -15,14 +15,14 @@ app.use(cookieParser());
 // while deploying the backend adn frontend on cyclic these command needed
 app.use(express.static(path.join(__dirname, "./client/build")));
 
-app.get("*", function (_, res) {
-  res.sendFile(
-    path.join(__dirname, "./client/build/index.html"),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
-});
+// app.get("*", function (_, res) {
+//   res.sendFile(
+//     path.join(__dirname, "./client/build/index.html"),
+//     function (err) {
+//       res.status(500).send(err);
+//     }
+//   );
+// });
 
 // import userSchema
 // const User = require("./model/userSchema");
