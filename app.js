@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // while deploying the backend adn frontend on cyclic these command needed
-app.use(express.static(path.join(__dirname, "./client/build")));
+// app.use(express.static(path.join(__dirname, "./client/build")));
 
 // app.get("*", function (_, res) {
 //   res.sendFile(
